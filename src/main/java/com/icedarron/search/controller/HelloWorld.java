@@ -8,7 +8,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -135,5 +137,17 @@ public class HelloWorld {
             System.out.println(k + " = " + v);
         });
         System.out.println("--ElasticSearch--");
+    }
+
+
+    @RequestMapping("/home/{s}")
+    public String function(@PathVariable String s){
+        System.out.println("--function--");
+        try {
+            return s;
+        } catch (Exception e) {
+            s = null;
+            return s;
+        }
     }
 }
