@@ -105,6 +105,7 @@ public class HelloWorld {
     @Autowired
     private ElasticsearchOperations es;
 
+    @RequestMapping("/testConnection")
     public void testRun(String... args) throws Exception {
 
         printElasticSearchInfo();
