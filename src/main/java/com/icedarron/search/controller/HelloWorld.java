@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.icedarron.search.model.EsPage;
 import com.icedarron.search.util.ElasticSearchUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.time.DateUtils;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
