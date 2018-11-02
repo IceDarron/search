@@ -1,7 +1,5 @@
 package com.icedarron.search;
 
-import com.icedarron.search.model.Book;
-import com.icedarron.search.service.BookService;
 import org.elasticsearch.client.Client;
 import org.junit.Before;
 import org.junit.Test;

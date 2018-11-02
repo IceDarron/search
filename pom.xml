@@ -26,14 +26,6 @@
     </properties>
 
     <dependencies>
-        <!-- java.lang.NoClassDefFoundError: org/elasticsearch/transport/Netty3Plugin -->
-        <dependency>
-            <groupId>org.elasticsearch.plugin</groupId>
-            <artifactId>transport-netty3-client</artifactId>
-            <version>5.1.1</version>
-            <scope>compile</scope>
-        </dependency>
-
         <!-- RabbitMQ -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -42,27 +34,40 @@
         </dependency>
 
         <!-- elasticsearch -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
-        </dependency>
-
-        <!-- 不通过springboot的方式 -->
+        <!-- springboot集成的es版本较低 -->
         <!--<dependency>-->
-            <!--<groupId>org.elasticsearch</groupId>-->
-            <!--<artifactId>elasticsearch</artifactId>-->
-            <!--<version>${elasticsearch.version}</version>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-data-elasticsearch</artifactId>-->
+            <!--<version>2.1.0.RELEASE</version>-->
         <!--</dependency>-->
+        <!-- 不通过springboot的方式 -->
+        <dependency>
+            <groupId>org.elasticsearch</groupId>
+            <artifactId>elasticsearch</artifactId>
+            <version>${elasticsearch.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>transport</artifactId>
+            <version>${elasticsearch.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.elasticsearch.plugin/transport-netty4-client -->
+        <!-- java.lang.NoClassDefFoundError: org/elasticsearch/transport/Netty3Plugin -->
+        <dependency>
+            <groupId>org.elasticsearch.plugin</groupId>
+            <artifactId>transport-netty4-client</artifactId>
+            <version>${elasticsearch.version}</version>
+        </dependency>
         <!--<dependency>-->
             <!--<groupId>org.elasticsearch.client</groupId>-->
             <!--<artifactId>x-pack-transport</artifactId>-->
             <!--<version>6.0.0-beta2</version>-->
         <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.yaml</groupId>-->
-            <!--<artifactId>snakeyaml</artifactId>-->
-            <!--<version>1.23</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>1.23</version>
+        </dependency>
 
         <!-- redis -->
         <dependency>
@@ -95,6 +100,23 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.13</version>
+        </dependency>
+
+        <!-- 相关辅助工具 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.51</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>27.0-jre</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.8.1</version>
         </dependency>
 
         <!-- Starter for testing Spring Boot applications with libraries including JUnit, Hamcrest and Mockito -->

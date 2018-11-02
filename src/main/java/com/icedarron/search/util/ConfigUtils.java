@@ -14,4 +14,7 @@ public class ConfigUtils {
     public static final String ELASTICSEARCH_HOST = null;
     @Value("${elasticsearch.port}")
     public static final Integer ELASTICSEARCH_PORT = null;
+    @Value("${elasticsearch.client.poolSize}")
+    public static final Integer ELASTICSEARCH_CLIENT_POOLSIZE = null;
+
 }
