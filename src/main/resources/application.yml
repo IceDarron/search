@@ -1,5 +1,5 @@
 elasticsearch:
-  cluster_name: icedarron-cluster
+  clusterName: icedarron-cluster
   host: localhost
   port: 9300
   poolSize: 20

@@ -4,6 +4,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.icedarron.search.connection.ElasticSearchConnect;
 import com.icedarron.search.model.EsPage;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.elasticsearch.action.admin.indices.create.CreateIndexResponse;
 import org.elasticsearch.action.admin.indices.delete.DeleteIndexResponse;
 import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsRequest;
@@ -22,10 +24,10 @@ import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
 import org.elasticsearch.search.sort.SortOrder;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -34,12 +36,20 @@ import java.util.UUID;
 @Component
 public class ElasticSearchUtils {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ElasticSearchUtils.class);
+    private static final Logger LOGGER = LogManager.getLogger(ElasticSearchUtils.class);
+
+    @Autowired
+    private TransportClient transportClient;
 
     private static TransportClient client;
 
-    public ElasticSearchUtils() {
-        this.client = ElasticSearchConnect.getInstance().getClient();
+    /**
+     * @PostContruct是spring框架的注解
+     * spring容器初始化的时候执行该方法
+     */
+    @PostConstruct
+    public void init() {
+        client = this.transportClient;
     }
 
     /**

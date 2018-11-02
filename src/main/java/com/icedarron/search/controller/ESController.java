@@ -4,11 +4,11 @@ import com.alibaba.fastjson.JSONObject;
 import com.icedarron.search.model.EsPage;
 import com.icedarron.search.util.ElasticSearchUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,7 +27,7 @@ import java.util.Random;
 public class ESController {
 
     // 日志
-    private final static Logger LOGGER = LoggerFactory.getLogger(ESController.class);
+    private final static Logger LOGGER = LogManager.getLogger(ESController.class);
 
     @RequestMapping("/helloworld")
     String index() {
@@ -125,9 +125,9 @@ public class ESController {
      * @param id
      * @return
      */
-    @RequestMapping("/getData")
+    @RequestMapping("/getData/{id}")
     @ResponseBody
-    public String getData(String id){
+    public String getData(@PathVariable String id){
         if(StringUtils.isNotBlank(id)) {
             Map<String, Object> map= ElasticSearchUtils.searchDataById(indexName,esType,id,null);
             return JSONObject.toJSONString(map);
