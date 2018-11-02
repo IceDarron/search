@@ -24,12 +24,14 @@ import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
 import org.elasticsearch.search.sort.SortOrder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+@Component
 public class ElasticSearchUtils {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ElasticSearchUtils.class);

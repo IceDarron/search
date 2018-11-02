@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import java.net.InetAddress;
 
-public class ElasticSearchConnect {
+public final class ElasticSearchConnect {
 
     // 日志
     private final static Logger LOGGER = LoggerFactory.getLogger(ElasticSearchConnect.class);
