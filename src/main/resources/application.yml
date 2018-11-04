@@ -6,11 +6,11 @@ elasticsearch:
 
 server:
   port: 18080
+  servlet:
+    path: /search
 
 #logging:
 #  config: classpath:logback-boot.xml
-
-
 
 #spring:
 #  rabbitmq:
