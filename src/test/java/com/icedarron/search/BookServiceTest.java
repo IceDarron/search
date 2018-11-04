@@ -3,6 +3,7 @@ package com.icedarron.search;
 import com.icedarron.search.model.Book;
 import com.icedarron.search.service.BookService;
 import org.elasticsearch.client.Client;
+import org.elasticsearch.common.settings.Settings;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -140,7 +141,7 @@ public class BookServiceTest {
 
         System.out.println("--ElasticSearch--");
         Client client = es.getClient();
-        Map<String, String> asMap = client.settings().getAsMap();
+        Map<String, Settings> asMap = client.settings().getAsGroups();
 
         asMap.forEach((k, v) -> {
             System.out.println(k + " = " + v);
