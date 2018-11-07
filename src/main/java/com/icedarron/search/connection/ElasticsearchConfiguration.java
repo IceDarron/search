@@ -3,6 +3,7 @@ package com.icedarron.search.connection;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.Settings;
+import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import org.elasticsearch.common.transport.TransportAddress;
 import org.elasticsearch.transport.client.PreBuiltTransportClient;
 import org.springframework.beans.factory.annotation.Value;
@@ -40,7 +41,7 @@ public class ElasticsearchConfiguration {
 //        //https://www.elastic.co/guide/en/elasticsearch/guide/current/_transport_client_versus_node_client.html
           TransportClient preBuiltTransportClient = new PreBuiltTransportClient(esSettings);
 //        PreBuiltTransportClient preBuiltTransportClient = new PreBuiltTransportClient(esSettings);
-        TransportAddress inetSocketTransportAddress =  new TransportAddress(InetAddress.getByName(EsHost), EsPort);
+        TransportAddress inetSocketTransportAddress =  new InetSocketTransportAddress(InetAddress.getByName(EsHost), EsPort);
         Client client =  preBuiltTransportClient.addTransportAddress(inetSocketTransportAddress);
 
 
