@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@RequestMapping("/test")
 public class HelloWorld {
 
     @RequestMapping("/helloworld")
